@@ -43,15 +43,6 @@ font-size: 1em;
             transition: filter 0.5s ease;
             cursor: pointer;
         }
-	#revelar {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            color: #fff; /* Adjust text color */
-            visibility: visible;
-	    text-align: center;
-	    user-select: none
-        }
         #blurred-content {
             position: absolute;
             top: 50%;
@@ -117,7 +108,6 @@ font-size: 1em;
 <a href="https://steamcommunity.com/groups/2050differentmentapped" target="_blank">~STEAM GROUP~</a> <a href="lol.html" target="_blank">~CHEAT~</a>
         </div>
     </div> 
-	<div id="revelar"><p>Clique para revelar</p></div>
 <script>
         var isBlurred = true;
 
@@ -137,12 +127,10 @@ font-size: 1em;
 </script>
 <script>
 var myAudio = new Audio("mySound.mp3");
-var revelar = document.getElementById("revelar");
 myAudio.load();
 $(document).on('click','body *',function(){
 myAudio.play();
 myAudio = false;
-revelar.remove();
 });
 </script>
 </body>
