@@ -126,11 +126,22 @@ font-size: 1em;
         }
 </script>
 <script>
+var audio2 = new Audio("audio2.mp3")
+audio2.load();
 var myAudio = new Audio("mySound.mp3");
 myAudio.load();
+var numero = Math.round(Math.random())
 $(document).on('click','body *',function(){
+if (numero == 0) {
 myAudio.play();
 myAudio = false;
+audio2 = false;
+}
+else {
+audio2.play();
+audio2 = false;
+myaudio = false;
+}
 });
 </script>
 </body>
