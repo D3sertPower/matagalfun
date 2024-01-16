@@ -13,7 +13,7 @@
             overflow: hidden; /* Prevents scroll bars */
         }
  a {
-font-size: 1em;
+	    font-size: 1em;
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
@@ -48,7 +48,7 @@ font-size: 1em;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #fff; /* Adjust text color */
+            color: #0ece6d; /* Adjust text color */
             visibility: hidden;
             opacity: 0;
             transition: visibility 0s, opacity 0.5s linear;
@@ -62,6 +62,102 @@ font-size: 1em;
             visibility: visible;
             opacity: 1;
         }
+input[type=range] {
+  width: 20%;
+
+  background-color: transparent;
+  -webkit-appearance: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-bottom: -2px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: #00ff00;
+  border: 0.2px solid #010101;
+  border-radius: 1.3px;
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -6px;
+  width: 16px;
+  height: 20px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #1aff1a;
+}
+input[type=range]::-moz-range-track {
+  background: #00ff00;
+  border: 0.2px solid #010101;
+  border-radius: 1.3px;
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 20px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 6.8px 0;
+  color: transparent;
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+}
+input[type=range]::-ms-fill-lower {
+  background: #00e600;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #00ff00;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+}
+input[type=range]::-ms-thumb {
+  width: 16px;
+  height: 20px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #00ff00;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #1aff1a;
+}
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+
+
     </style>
 <div class="snowflakes" aria-hidden="true">
   <div class="snowflake">
@@ -105,7 +201,7 @@ font-size: 1em;
 <body>
     <div id="blur-container" onclick="toggleBlur()">
         <div id="blurred-content">
-<a href="https://steamcommunity.com/groups/2050differentmentapped" target="_blank">~STEAM GROUP~</a> <a href="lol.html" target="_blank">~CHEAT~</a>
+<a href="https://steamcommunity.com/groups/2050differentmentapped" target="_blank">~STEAM GROUP~</a> <a href="lol.html" target="_blank">~CHEAT~</a><input type="range" id="volume-control">
         </div>
     </div> 
 <script>
@@ -126,22 +222,34 @@ font-size: 1em;
         }
 </script>
 <script>
+let volume = document.querySelector("#volume-control");
+volume.addEventListener("input", function(e) {
+audio2.volume = e.currentTarget.value / 100;
+myAudio.volume = e.currentTarget.value / 100;
+})
 var audio2 = new Audio("audio2.mp3")
 audio2.load();
 var myAudio = new Audio("mySound.mp3");
 myAudio.load();
+var carlinhos = false
 var numero = Math.round(Math.random())
 $(document).on('click','body *',function(){
 if (numero == 0) {
+if (carlinhos == false) {
 myAudio.play();
-myAudio = false;
-audio2 = false;
+carlinhos == true;
 }
-else {
+if (carlinhos == true) {
+return;
+}}
+if (numero == 1) {
+if (carlinhos == false) {
 audio2.play();
-audio2 = false;
-myaudio = false;
+carlinhos == true
+if (carlinhos == true) {
+return;
 }
+}}
 });
 </script>
 </body>
