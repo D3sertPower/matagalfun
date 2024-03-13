@@ -222,6 +222,11 @@ how to remove the virtical space around the range input in IE*/
         }
 </script>
 <script>
+function getRandomInt(min, max) { 
+  min = Math.ceil(min); 
+  max = Math.floor(max); 
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
+} 
 let volume = document.querySelector("#volume-control");
 volume.addEventListener("input", function(e) {
 audio2.volume = e.currentTarget.value / 100;
@@ -231,8 +236,10 @@ var audio2 = new Audio("audio2.mp3")
 audio2.load();
 var myAudio = new Audio("mySound.mp3");
 myAudio.load();
+var dalvaRap = new Audio("dalva_rap.mp3"); 
+dalvaRap.load();
 var carlinhos = false
-var numero = Math.round(Math.random())
+var numero = getRandomInt(0, 2)
 $(document).on('click','body *',function(){
 if (numero == 0) {
 if (carlinhos == false) {
@@ -250,7 +257,15 @@ if (carlinhos == true) {
 return;
 }
 }}
-});
+if (numero == 2) {
+if (carlinhos == false) {
+dalvaRap.play();
+carlinhos == true;
+}
+if (carlinhos == true) {
+return;
+}
+}});
 </script>
 </body>
 </html>
