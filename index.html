@@ -231,6 +231,7 @@ let volume = document.querySelector("#volume-control");
 volume.addEventListener("input", function(e) {
 audio2.volume = e.currentTarget.value / 100;
 myAudio.volume = e.currentTarget.value / 100;
+dalvaRap.volume = e.currentTarget.value / 100;
 })
 var audio2 = new Audio("audio2.mp3")
 audio2.load();
